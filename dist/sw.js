@@ -3445,12 +3445,33 @@ define([],(function () { 'use strict';
      * See https://goo.gl/S9QRab
      */
     precacheAndRoute([{
+      "url": "assets/index-C2efOtOH.css",
+      "revision": null
+    }, {
+      "url": "assets/index-ChvHWX9d.js",
+      "revision": null
+    }, {
       "url": "index.html",
-      "revision": "0.04iputtj6io"
+      "revision": "a4699f7a3b3b9b81c76f3a63ecebe603"
+    }, {
+      "url": "registerSW.js",
+      "revision": "1872c500de691dce40960bb85481de07"
+    }, {
+      "url": "favicon.svg",
+      "revision": "71dcfd191507c31dc79efe3341dfa3b9"
+    }, {
+      "url": "pwa-192x192.png",
+      "revision": "f24c9384006bbc8de95ed69990459dca"
+    }, {
+      "url": "pwa-512x512.png",
+      "revision": "4db5b8fe442a8f8fdc6e35cd40138057"
+    }, {
+      "url": "manifest.webmanifest",
+      "revision": "6a207a690f2d3764d9c28e089effb35f"
     }], {});
     cleanupOutdatedCaches();
-    registerRoute(new NavigationRoute(createHandlerBoundToURL("index.html"), {
-      allowlist: [/^\/$/]
-    }));
+    registerRoute(new NavigationRoute(createHandlerBoundToURL("index.html")));
 
 }));
+//# sourceMappingURL=sw.js.map
+//# sourceMappingURL=sw.js.map

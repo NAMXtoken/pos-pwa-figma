@@ -1,6 +1,6 @@
-import svgPaths from "../../imports/svg-ubglfnyzv5";
+import svgPaths from '../../imports/svg-ubglfnyzv5'
 
-export function Bill24Outline() {
+export function BillIcon() {
   return (
     <div className="relative shrink-0 size-[32px]">
       <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
@@ -9,5 +9,5 @@ export function Bill24Outline() {
         </g>
       </svg>
     </div>
-  );
+  )
 }

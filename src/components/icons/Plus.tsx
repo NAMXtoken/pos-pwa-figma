@@ -1,6 +1,6 @@
-import svgPaths from "../../imports/svg-ubglfnyzv5";
+import svgPaths from '../../imports/svg-ubglfnyzv5'
 
-export function Plus24Outline() {
+export function PlusIcon() {
   return (
     <div className="relative shrink-0 size-[16px]">
       <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 16">
@@ -9,5 +9,5 @@ export function Plus24Outline() {
         </g>
       </svg>
     </div>
-  );
+  )
 }

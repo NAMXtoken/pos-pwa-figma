@@ -1,25 +1,37 @@
-import { Search, Filters24Outline } from '../icons';
+import type { ReactNode } from 'react'
+import { Search, FiltersIcon } from '../icons'
 
 interface MenuHeaderProps {
-  categories: string[];
-  selectedCategory: string;
-  onSelectCategory: (category: string) => void;
+  categories: string[]
+  selectedCategory: string
+  onSelectCategory: (category: string) => void
+  leadingSlot?: ReactNode
 }
 
-export function MenuHeader({ categories, selectedCategory, onSelectCategory }: MenuHeaderProps) {
+export function MenuHeader({ categories, selectedCategory, onSelectCategory, leadingSlot }: MenuHeaderProps) {
   return (
     <div className="bg-white border-b border-[#c4c4c4] p-[24px] shrink-0">
       {/* Search and Filter */}
-      <div className="flex gap-[24px] mb-[26px]">
-        <div className="bg-neutral-100 box-border content-stretch flex gap-[10px] items-center px-[16px] py-[10px] rounded-[10px] flex-1 h-[52px]">
-          <div aria-hidden="true" className="absolute border-[#c4c4c4] border-[0.8px] border-solid inset-0 pointer-events-none rounded-[10px]" />
-          <Search />
-          <p className="font-['Poppins:Regular',sans-serif] text-[#7a7a7a] text-[16px] tracking-[0.5px]">Search</p>
-        </div>
-        <div className="box-border content-stretch flex gap-[10px] items-center justify-center px-[16px] py-[8px] rounded-[10px] h-[52px]">
-          <Filters24Outline />
-          <div className="font-['Poppins:Regular',sans-serif] text-[#2a1d1f] text-[16px] tracking-[0.5px]">
-            Filter
+      <div className="mb-[26px] flex items-center gap-[24px]">
+        {leadingSlot ? <div className="shrink-0">{leadingSlot}</div> : null}
+        <div className="flex flex-1 items-center gap-[24px]">
+          <div className="relative flex h-[52px] flex-1 items-center gap-[10px] rounded-[10px] bg-neutral-100 px-[16px] py-[10px]">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-[10px] border border-[#c4c4c4]"
+            />
+            <Search />
+            <p className="font-['Poppins:Regular',sans-serif] text-[16px] tracking-[0.5px] text-[#7a7a7a]">Search</p>
+          </div>
+          <div className="relative flex h-[52px] items-center gap-[10px] rounded-[10px] px-[16px] py-[8px]">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-[10px] border border-[#c4c4c4]"
+            />
+            <FiltersIcon />
+            <div className="font-['Poppins:Regular',sans-serif] text-[16px] tracking-[0.5px] text-[#2a1d1f]">
+              Filter
+            </div>
           </div>
         </div>
       </div>
@@ -34,21 +46,26 @@ export function MenuHeader({ categories, selectedCategory, onSelectCategory }: M
               (index === 0 && selectedCategory === 'All') || category === selectedCategory
                 ? 'bg-[#9c2c77]'
                 : 'bg-neutral-100'
-            } box-border content-stretch flex gap-[10px] items-center justify-center px-[16px] py-[8px] rounded-[6px] shrink-0 relative`}
+            } relative box-border flex shrink-0 items-center justify-center gap-[10px] rounded-[6px] px-[16px] py-[8px]`}
           >
             {(index === 0 && selectedCategory === 'All') || category !== selectedCategory ? (
-              <div aria-hidden="true" className="absolute border-[#c4c4c4] border-[0.7px] border-solid inset-0 pointer-events-none rounded-[6px]" />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-[6px] border border-[#c4c4c4]"
+              />
             ) : null}
-            <div className={`font-['Poppins:SemiBold',sans-serif] text-[16px] tracking-[0.5px] whitespace-nowrap ${
-              (index === 0 && selectedCategory === 'All') || category === selectedCategory
-                ? 'text-neutral-100'
-                : 'text-[#2a1d1f]'
-            }`}>
+            <div
+              className={`font-['Poppins:SemiBold',sans-serif] text-[16px] tracking-[0.5px] whitespace-nowrap ${
+                (index === 0 && selectedCategory === 'All') || category === selectedCategory
+                  ? 'text-neutral-100'
+                  : 'text-[#2a1d1f]'
+              }`}
+            >
               {category}
             </div>
           </button>
         ))}
       </div>
     </div>
-  );
+  )
 }

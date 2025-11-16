@@ -13,7 +13,7 @@ interface MenuCardProps {
 export function MenuCard({ item, onAddToCart }: MenuCardProps) {
   return (
     <div 
-      className="h-[228px] relative shrink-0 w-[215px] cursor-pointer hover:opacity-80 transition-opacity"
+      className="relative h-[228px] w-full min-w-0 cursor-pointer transition-opacity hover:opacity-80"
       onClick={() => onAddToCart(item)}
     >
       <div className="absolute bottom-[31.58%] left-0 pointer-events-none right-0 rounded-tl-[10px] rounded-tr-[10px] top-0">

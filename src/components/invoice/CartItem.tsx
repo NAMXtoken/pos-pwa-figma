@@ -1,5 +1,5 @@
 import { Trash2 } from 'lucide-react';
-import { Plus24Outline, Remove24Outline } from '../icons';
+import { PlusIcon, RemoveIcon } from '../icons';
 
 interface CartItemProps {
   item: {
@@ -32,7 +32,7 @@ export function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
             onClick={() => onUpdateQuantity(item.id, 1)}
             className="bg-[#9c2c77] flex items-center justify-center rounded-[6px] shrink-0 size-[28px]"
           >
-            <Plus24Outline />
+            <PlusIcon />
           </button>
           <div className="font-['Poppins:SemiBold',sans-serif] text-[#2a1d1f] text-[16px] tracking-[0.5px]">
             {item.quantity}
@@ -41,7 +41,7 @@ export function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
             onClick={() => onUpdateQuantity(item.id, -1)}
             className="bg-[#9c2c77] flex items-center justify-center rounded-[6px] shrink-0 size-[28px]"
           >
-            <Remove24Outline />
+            <RemoveIcon />
           </button>
         </div>
       </div>

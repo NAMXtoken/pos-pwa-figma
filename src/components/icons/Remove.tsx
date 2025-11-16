@@ -1,6 +1,6 @@
 import svgPaths from "../../imports/svg-ubglfnyzv5";
 
-export function Remove24Outline() {
+export function RemoveIcon() {
   return (
     <div className="relative shrink-0 size-[16px]">
       <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 16">

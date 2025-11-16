@@ -42,7 +42,7 @@
     "run-build-sw-claims-destroy": "DEBUG=vite-plugin-pwa BASE_URL=/ SOURCE_MAP=true SW_DESTROY=true CLAIMS=true SW=true vite build",
     "run-build-sw-reloadsw-claims-destroy": "DEBUG=vite-plugin-pwa BASE_URL=/ SOURCE_MAP=true SW_DESTROY=true CLAIMS=true RELOAD_SW=true SW=true vite build",
     "serve": "serve dist",
-    "start-preview": "vite preview --port=4173",
+    "start-preview": "vite preview --port=4173 --host",
     "test-build-claims": "nr run-build-claims && vitest run && playwright test",
     "test-build-sw-claims": "nr run-build-sw-claims && SW=true vitest run && SW=true playwright test",
     "test": "nr test-build-claims && nr test-build-sw-claims"

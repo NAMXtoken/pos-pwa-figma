@@ -1,6 +1,6 @@
-import svgPaths from "../../imports/svg-ubglfnyzv5";
+import svgPaths from '../../imports/svg-ubglfnyzv5'
 
-export function Filters24Outline() {
+export function FiltersIcon() {
   return (
     <div className="relative shrink-0 size-[24px]">
       <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
@@ -9,5 +9,5 @@ export function Filters24Outline() {
         </g>
       </svg>
     </div>
-  );
+  )
 }
