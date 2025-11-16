@@ -7,6 +7,7 @@ import { VitePWA } from "vite-plugin-pwa"
 const pwaOptions: Partial<VitePWAOptions> = {
   mode: 'development',
   base: '/',
+  injectRegister: null,
   includeAssets: ['favicon.svg'],
   manifest: {
     name: 'PWA Router',
@@ -78,4 +79,3 @@ export default defineConfig({
     replace(replaceOptions),
   ],
 })
-

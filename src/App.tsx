@@ -1,13 +1,28 @@
-import { useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { CashierLayout } from './components/cashier/CashierLayout'
 import Sidebar from './components/sidebar/Sidebar'
 import { ThemeProvider } from './components/ThemeProvider'
+const ReloadPrompt = lazy(async () => await import('./ReloadPrompt'))
 
 export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [shouldLoadReloadPrompt, setShouldLoadReloadPrompt] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined')
+      return
+
+    const timeoutId = window.setTimeout(() => setShouldLoadReloadPrompt(true), 1500)
+    return () => clearTimeout(timeoutId)
+  }, [])
 
   return (
     <ThemeProvider>
+      {shouldLoadReloadPrompt && (
+        <Suspense fallback={null}>
+          <ReloadPrompt />
+        </Suspense>
+      )}
       <div className="relative flex h-screen w-screen overflow-hidden bg-white dark:bg-gray-900">
         <nav
           className="fixed inset-y-0 left-0 z-50 overflow-hidden border-r border-[#c4c4c4] bg-white shadow-2xl transition-transform duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800"

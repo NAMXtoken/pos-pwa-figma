@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Prevent crawlers from indexing temporary service worker helpers
+Disallow: /registerSW.js
+Disallow: /sw.js
+Disallow: /claims-sw.js

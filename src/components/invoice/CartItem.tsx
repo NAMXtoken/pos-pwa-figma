@@ -1,24 +1,40 @@
-import { Trash2 } from 'lucide-react';
-import { PlusIcon, RemoveIcon } from '../icons';
+import { Trash2 } from 'lucide-react'
+import { PlusIcon, RemoveIcon } from '../icons'
+import type { MenuImage } from '../menu/MenuCard'
 
 interface CartItemProps {
   item: {
-    id: string;
-    name: string;
-    price: number;
-    image: string;
-    quantity: number;
-  };
-  onUpdateQuantity: (id: string, delta: number) => void;
-  onRemove: (id: string) => void;
+    id: string
+    name: string
+    price: number
+    image: MenuImage
+    quantity: number
+  }
+  onUpdateQuantity: (id: string, delta: number) => void
+  onRemove: (id: string) => void
 }
 
 export function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
+  const { fallbackSrc, alt, width, height, sources = [] } = item.image
+
   return (
     <div className="bg-neutral-100 box-border flex gap-[12px] items-center p-[12px] rounded-[10px] w-full relative">
       <div aria-hidden="true" className="absolute border-[#c4c4c4] border-[0.7px] border-solid inset-0 pointer-events-none rounded-[10px]" />
       <div className="relative rounded-[10px] shrink-0 size-[80px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[10px] size-full" src={item.image} />
+        <picture className="absolute inset-0 size-full rounded-[10px]">
+          {sources.map(({ srcSet, type, media, sizes }) => (
+            <source key={`${srcSet}-${type ?? 'img'}`} srcSet={srcSet} type={type} media={media} sizes={sizes} />
+          ))}
+          <img
+            alt={alt}
+            className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[10px] size-full"
+            decoding="async"
+            height={height}
+            loading="lazy"
+            src={fallbackSrc}
+            width={width}
+          />
+        </picture>
       </div>
       <div className="flex flex-col gap-[6px] grow min-w-0">
         <div className="font-['Poppins:Regular',sans-serif] text-[#2a1d1f] text-[16px] tracking-[0.5px]">

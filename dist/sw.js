@@ -3445,17 +3445,23 @@ define([],(function () { 'use strict';
      * See https://goo.gl/S9QRab
      */
     precacheAndRoute([{
+      "url": "assets/index-Bci75Mbr.js",
+      "revision": null
+    }, {
       "url": "assets/index-C2efOtOH.css",
       "revision": null
     }, {
-      "url": "assets/index-ChvHWX9d.js",
+      "url": "assets/ReloadPrompt-CUMz38ak.css",
+      "revision": null
+    }, {
+      "url": "assets/ReloadPrompt-D-gAj_yY.js",
+      "revision": null
+    }, {
+      "url": "assets/workbox-window.prod.es5-B9K5rw8f.js",
       "revision": null
     }, {
       "url": "index.html",
-      "revision": "a4699f7a3b3b9b81c76f3a63ecebe603"
-    }, {
-      "url": "registerSW.js",
-      "revision": "1872c500de691dce40960bb85481de07"
+      "revision": "63f9745963c850fb9bde0bdf02871ccb"
     }, {
       "url": "favicon.svg",
       "revision": "71dcfd191507c31dc79efe3341dfa3b9"
