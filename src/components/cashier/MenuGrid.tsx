@@ -10,10 +10,9 @@ interface MenuGridProps {
 export function MenuGrid({ items, onAddToCart }: MenuGridProps) {
   return (
     <div
-      className="grid w-full"
+      className="grid w-full gap-4"
       style={{
-        gridTemplateColumns: 'repeat(4, minmax(215px, 1fr))',
-        gap: '24px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(215px, 1fr))',
       }}
     >
       {items.map(item => (

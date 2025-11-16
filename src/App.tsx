@@ -23,28 +23,27 @@ export default function App() {
           <ReloadPrompt />
         </Suspense>
       )}
-      <div className="relative flex h-screen w-screen overflow-hidden bg-white dark:bg-gray-900">
-        <nav
-          className="fixed inset-y-0 left-0 z-50 overflow-hidden border-r border-[#c4c4c4] bg-white shadow-2xl transition-transform duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800"
-          style={{
-            width: 240,
-            transform: isSidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
-            pointerEvents: isSidebarOpen ? 'auto' : 'none',
-          }}
-        >
-          <Sidebar />
-        </nav>
-        {isSidebarOpen ? (
-          <button
-            type="button"
-            className="fixed inset-0 z-40 bg-black/20"
-            aria-label="Close sidebar"
-            onClick={() => setIsSidebarOpen(false)}
-          />
-        ) : null}
-        <main className="flex min-h-0 flex-1 overflow-hidden bg-white dark:bg-gray-900">
-          <CashierLayout onToggleSidebar={() => setIsSidebarOpen(prev => !prev)} isSidebarOpen={isSidebarOpen} />
-        </main>
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <div className="mx-auto flex h-screen w-full max-w-[1440px] gap-4 px-8">
+          <nav
+            className={`relative z-50 w-[240px] flex-shrink-0 overflow-hidden border-r border-[#c4c4c4] bg-white shadow-2xl transition-transform duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 ${
+              isSidebarOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none md:pointer-events-auto md:translate-x-0'
+            }`}
+          >
+            <Sidebar />
+          </nav>
+          {isSidebarOpen ? (
+            <button
+              type="button"
+              className="fixed inset-0 z-40 bg-black/20 md:hidden"
+              aria-label="Close sidebar"
+              onClick={() => setIsSidebarOpen(false)}
+            />
+          ) : null}
+          <main className="flex min-h-0 flex-1 overflow-hidden bg-white dark:bg-gray-900">
+            <CashierLayout onToggleSidebar={() => setIsSidebarOpen(prev => !prev)} isSidebarOpen={isSidebarOpen} />
+          </main>
+        </div>
       </div>
     </ThemeProvider>
   )

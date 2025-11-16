@@ -50,8 +50,8 @@ export function CashierLayout({ onToggleSidebar, isSidebarOpen }: CashierLayoutP
   const total = subtotal - discount + tax
 
   return (
-    <div className="flex min-h-0 flex-1 overflow-hidden">
-      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+    <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="flex min-h-0 flex-col overflow-hidden">
         <MenuHeader
           categories={MENU_CATEGORIES}
           selectedCategory={selectedCategory}

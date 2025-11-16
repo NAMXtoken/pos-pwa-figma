@@ -29,7 +29,7 @@ export function InvoicePanel({
   onRemoveItem,
 }: InvoicePanelProps) {
   return (
-    <div className="bg-white w-[25vw] border-l border-[#c4c4c4] flex flex-col h-full">
+    <div className="flex h-full w-full flex-col border-t border-[#c4c4c4] bg-white lg:border-l lg:border-t-0">
       {/* Invoice Header */}
       <div className="p-[24px] border-b border-[#c4c4c4]">
         <div className="flex items-center justify-between">
